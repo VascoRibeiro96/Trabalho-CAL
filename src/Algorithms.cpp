@@ -7,7 +7,19 @@
 
 #include "Algorithms.h"
 #include <vector>
+#include "Interface.h"
+#include "Empresa.h"
+#include "LoadGraph.h"
+#include "windows.h"
+#include <ctime>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <fstream>
+#include <algorithm>
+#include "Autocarro.h"
 
+#include "Graph.h"
 
 /**
  * Sets all paths to null and resets vertex visits
@@ -74,52 +86,61 @@ void nearestNeighbourBus(Graph<Crianca> &grafo, Autocarro &b)
 	}
 }
 
+bool allVisited(Graph<Crianca> &grafo){
+	for (unsigned int i = 0; i < grafo.getNumVertex(); i++) {
+				if(grafo.getVertexSet()[i]->getVisited() == false)
+					return false;
+			}
+	return true;
+}
+
 void nearestNeighbourSuperBus(Graph<Crianca> &grafo, Autocarro &b)
 {
 
+	for (unsigned int i = 0; i < grafo.getNumVertex(); i++) {
+			grafo.getVertexSet()[i]->setVisited(false);
+		}
+
 	Vertex<Crianca>* actual = grafo.getVertexSet()[0];
-
-
 	Vertex<Crianca>* proximo;
 	actual->setVisited(true);
-	int pesoMin = -1;
+	int pesoMin = INT_INFINITY;
 
-	for(int i = 1; i < grafo.getNumVertex()-1; ++i)
+	for(int i = 1; i < grafo.getNumVertex(); i++)
 	{
-		for(int j = 0; j < actual->getAdj().size(); ++j)
+		for(int j = 0; j < actual->getAdj().size(); j++)
 		{
 			if(!actual->getAdj()[j].getDest()->isVisited())
 			{
-				if(pesoMin == -1 || actual->getAdj()[j].getWeight() < pesoMin)
+				if(/*pesoMin == INT_INFINITY ||*/actual->getAdj()[j].getWeight() < pesoMin)
 				{
+					if((actual->getAdj()[j].getDest()->getInfo().getNome() == "Escola") && allVisited(grafo))
+					{
 					pesoMin = actual->getAdj()[j].getWeight();
 					proximo = actual->getAdj()[j].getDest();
+					continue;
+					}
+					pesoMin = actual->getAdj()[j].getWeight();
+					proximo = actual->getAdj()[j].getDest();
+
 				}
 			}
+
 		}
-
-
 		//------------  Checks if all kids have been collected  ----------------//
-
-		if (actual->getInfo() == proximo->getInfo()){
-				actual->path = grafo.getVertexSet()[grafo.getNumVertex() - 1];
-				return;
+		if (!(actual->getInfo() == proximo->getInfo())){
+				//actual->path = grafo.getVertexSet()[grafo.getNumVertex() - 1];
+				actual->path = proximo;
+				if(!(actual->getInfo().getNome() == "Escola"))
+				b.addCrianca(proximo->getInfo());
 			}
-
 			//-------------------------------------------------------------------------------//
-
 			//Add kid to the bus and readies next iteration
-
-			b.addCrianca(proximo->getInfo());
-
-			actual->path = proximo;
 
 			actual = proximo;
 			actual->setVisited(true);
-
-			pesoMin = -1;
+			pesoMin = INT_INFINITY;
 	}
-
 }
 
 

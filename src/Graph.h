@@ -49,6 +49,7 @@ public:
 	bool getVisited();
 	int getDist() const;
 	void setDist(int val);
+	void setProcessing(bool process);
 	int getIndegree() const;
 	vector<Edge<T> > getAdj() const;
 	Vertex<T>* getPath() const;
@@ -134,6 +135,11 @@ int Vertex<T>::getDist() const {
 template<class T>
 void Vertex<T>::setDist(int val){
 	this->dist = val;
+}
+
+template<class T>
+void Vertex<T>::setProcessing(bool val){
+	this->processing = val;
 }
 
 template<class T>
@@ -250,6 +256,8 @@ public:
 	void getfloydWarshallPathAux(int index1, int index2, vector<T> & res);
 	void printSquareArray(int ** arr, unsigned int size);
 	int getfloydWarshallWeigth(const T &origin, const T &dest);
+	Graph<T> createSubGraph(Graph<T> graph, const T &start, const T &end, vector<T> toVisit);
+
 
 	Graph<T> clone();
 };
@@ -759,6 +767,8 @@ void Graph<T>::dijkstraShortestPath(const T &s) {
 	}
 }
 
+
+
 template<class T>
 int Graph<T>::edgeCost(int vOrigIndex, int vDestIndex) {
 	if (vertexSet[vOrigIndex] == vertexSet[vDestIndex])
@@ -850,5 +860,56 @@ Graph<T> Graph<T>::clone() {
 
 	return ret;
 }
+
+template<class T>
+Graph<T> Graph<T>::createSubGraph(Graph<T> graph, const T &start, const T &end, vector<T> toVisit) {
+	Graph<T> ret;
+	int newCost;
+
+	Graph<T> tempGraph = graph;
+
+	ret.addVertex(start);
+	for(size_t i = 0;i < toVisit.size();i++){
+		ret.addVertex(toVisit[i]);
+	}
+	ret.addVertex(end);
+
+	vector<Vertex<int>*> routes = tempGraph.getVertexSet();
+
+	for(int i = 0;i <= toVisit.size();i++){
+		if(i == toVisit.size()){
+			newCost = W[start][end];
+			if (newCost < INT_INFINITY)
+				ret.addEdge(start,end,newCost);
+		}else{
+			newCost = W[start][toVisit[i]];
+			if (newCost < INT_INFINITY)
+				ret.addEdge(start,toVisit[i],newCost);
+		}
+	}
+
+	for(int i = 0;i < toVisit.size();i++){
+		newCost = W[toVisit[i]][start];
+		if (newCost < INT_INFINITY)
+			ret.addEdge(toVisit[i],start,newCost);
+	}
+
+	for(int j = 0; j < toVisit.size();j++){
+		for(int i = 0;i <= toVisit.size();i++){
+			if(i == toVisit.size()){
+				newCost = W[toVisit[j]][end];
+				if (newCost < INT_INFINITY)
+					ret.addEdge(toVisit[j],end,newCost);
+			}else if (i != j){
+				newCost = W[toVisit[j]][toVisit[i]];
+				if (newCost < INT_INFINITY)
+					ret.addEdge(toVisit[j],toVisit[i],newCost);
+			}
+		}
+	}
+
+	return ret;
+}
+
 
 #endif

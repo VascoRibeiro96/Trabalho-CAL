@@ -17,8 +17,12 @@
 #include <algorithm>
 #include "Autocarro.h"
 #include "Algorithms.h"
+#include "Graph.h"
 
 using namespace std;
+
+
+
 
 
 void showGraph(Graph<Crianca> &grafo) {
@@ -86,6 +90,7 @@ void ilimitado(Graph<Crianca> &g)
 {
 	int option2;
 	Autocarro a;
+	Crianca c("Garagem",0,"Garagem");
 	do{
 				cout << "1 - Mostrar Mapa" << endl;
 				cout << "2 - Mostrar Caminho" << endl;
@@ -153,7 +158,7 @@ void limitado(Graph<Crianca> &g)
 						break;
 					case 2:
 						a.setCapMax(INT_MAX);
-						nearestNeighbourBus(g,a);
+						//nearestNeighbourAutocarro(g,a);
 						a.calcRotaAutocarro(g);
 						a.print();
 						cout << flush;
@@ -239,9 +244,10 @@ int main(){
 	lg.loadCriancas(g);
 	lg.loadAdjacentes(g);
 
+
 	g.floydWarshallShortestPath();
-	
-	prepareGraph(g);
+
+	//prepareGraph(g);
 	mainMenu(g);
 
 
