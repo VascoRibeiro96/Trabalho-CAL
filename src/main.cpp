@@ -65,7 +65,6 @@ void showGraph(Graph<Crianca> &grafo) {
 
  			gv->addEdge(id1 * 1000 + id2, id1, id2, EdgeType::DIRECTED);
 
-
  			gv->setEdgeWeight(id1 * 1000 + id2, grafo.getVertexSet()[vert]->getAdj()[edge].getWeight());
  			ss.str("");
  		}
