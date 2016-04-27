@@ -20,7 +20,19 @@ using namespace std;
 
 class LoadGraph {
 public:
+
+	/**
+	 * Loads Vertices from text file to the graph
+	 * \param grafo Graph to be altered
+	 */
+
  bool loadLocalizacaos(Graph<Localizacao> &grafo);
+
+ /**
+ 	 * Loads Edges from text file to the graph
+ 	 * \param grafo Graph to be altered
+ 	 */
+
  bool loadAdjacentes(Graph<Localizacao> &grafo);
 
 

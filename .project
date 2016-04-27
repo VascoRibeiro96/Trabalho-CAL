@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Trabalho-Cal</name>
+	<name>CAL-Trabalho</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -24,4 +24,41 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>.cproject</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/2%C2%BA%20Semestre/CAL/Trabalho-CAL/.cproject</locationURI>
+		</link>
+		<link>
+			<name>.gitignore</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/2%C2%BA%20Semestre/CAL/Trabalho-CAL/.gitignore</locationURI>
+		</link>
+		<link>
+			<name>.project</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/2%C2%BA%20Semestre/CAL/Trabalho-CAL/.project</locationURI>
+		</link>
+		<link>
+			<name>.settings</name>
+			<type>2</type>
+			<locationURI>PARENT-3-PROJECT_LOC/2%C2%BA%20Semestre/CAL/Trabalho-CAL/.settings</locationURI>
+		</link>
+		<link>
+			<name>GraphViewerController.jar</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/2%C2%BA%20Semestre/CAL/Trabalho-CAL/GraphViewerController.jar</locationURI>
+		</link>
+		<link>
+			<name>resources</name>
+			<type>2</type>
+			<locationURI>PARENT-3-PROJECT_LOC/2%C2%BA%20Semestre/CAL/Trabalho-CAL/resources</locationURI>
+		</link>
+		<link>
+			<name>src</name>
+			<type>2</type>
+			<locationURI>PARENT-3-PROJECT_LOC/2%C2%BA%20Semestre/CAL/Trabalho-CAL/src</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

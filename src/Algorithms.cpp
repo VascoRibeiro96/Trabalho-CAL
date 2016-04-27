@@ -21,10 +21,7 @@
 
 #include "Graph.h"
 
-/**
- * Sets all paths to null and resets vertex visits
- * @param grafo Graph to be reseted
- */
+
 
 void prepareGraph(Graph<Localizacao> &grafo)
 {
