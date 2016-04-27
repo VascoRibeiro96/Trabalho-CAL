@@ -1,0 +1,21 @@
+17 
+0,Garagem,Garagem
+1,Nome 1,Rua 1
+2,Nome 2,Rua 2
+3,Nome 3,Rua 3
+4,Nome 4,Rua 4
+5,Nome 5,Rua 5
+6,Nome 6,Rua 6
+7,Nome 7,Rua 7
+8,Nome 8,Rua 8
+9,Nome 9,Rua 9
+10,Nome 10,Rua 10
+11,Nome 11,Rua 11
+12,Nome 12,Rua 12
+13,Nome 13,Rua 13
+14,Nome 14,Rua 14
+15,Nome 15,Rua 15
+16,Nome 16,Rua 16
+17,Nome 17,Rua 17
+18,Nome 18,Rua 18
+20,Escola,Escola
