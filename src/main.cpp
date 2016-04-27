@@ -26,7 +26,10 @@ using namespace std;
 
 
 
-
+/**
+ *  \brief Prints the given graph
+ *  \param grafo Graph to be printed
+ */
 void showGraph(Graph<Localizacao> &grafo)
 {
  	GraphViewer *gv = new GraphViewer(800, 800, true);
@@ -89,6 +92,10 @@ void showGraph(Graph<Localizacao> &grafo)
 
 }
 
+/**
+ *  \brief Runs the algorithm in an ilimited bus that carries all the children
+ *  \param g Graph where the resulting path is shown
+ */
 void ilimitado(Graph<Localizacao> &g)
 {
 	int option2;
@@ -134,6 +141,10 @@ void ilimitado(Graph<Localizacao> &g)
 
 }
 
+/**
+ *  \brief Runs the algorithm in an limited bus that carries a maximum number of children (not working properly due to algorithm problems)
+ *  \param g Graph where the resulting path is shown
+ */
 void limitado(Graph<Localizacao> &g)
 {
 	int option3;
@@ -177,6 +188,10 @@ void limitado(Graph<Localizacao> &g)
 				}while (option3 !=0);
 }
 
+/**
+ *  \brief User Interface used to choose amongst the two options
+ *  \param g Graph where the result is shown
+ */
 void mainMenu(Graph<Localizacao> &g)
 {
 	int option;
@@ -213,33 +228,10 @@ void mainMenu(Graph<Localizacao> &g)
 
 }
 
-
+/**
+ *  \brief Base of the program where the graph is loaded and the interface called
+ */
 int main(){
-
-	//
-	//
-	//	Empresa* empresa = new Empresa();
-	//	Rua ruaE("Rua das Pombinhas", 21.1231521, -41.8798798);
-	//	Rua ruaC1("Rua 25 de Abril", 21.2345234, -41.1235245);
-	//	Rua ruaC2("Rua Luis de Camoes", 22.903765871, -41.213141);
-	//	Rua ruaC3("Rua Fernando Pessoa", 21.018374, -41.26478237);
-	//	Rua ruaC4("Rua Eugenio de Andrade", 21.2345213,-41.14352345);
-	//	Localizacao* cr1 = new Localizacao("Joao",ruaC1);
-	//	Localizacao* cr2 = new Localizacao("Manel",ruaC1);
-	//	Localizacao* cr3 = new Localizacao("Nuno",ruaC2);
-	//	Localizacao* cr4 = new Localizacao("Miguel",ruaC3);
-	//	Localizacao* cr5 = new Localizacao("Pedro",ruaC4);
-	//	Escola* escola = new Escola("Externato Delfim Ferreira", ruaE);
-	//	escola->addLocalizacao(cr1);
-	//	escola->addLocalizacao(cr2);
-	//	escola->addLocalizacao(cr3);
-	//	escola->addLocalizacao(cr4);
-	//	escola->addLocalizacao(cr5);
-	//	Autocarro* autocarro = new Autocarro(1,10);
-	//	empresa->addEscola(escola);
-	//	empresa->addAutocarro(autocarro);
-	//	cout << "Nome: " << empresa->getEscolaByName("Externato Delfim Ferreira")->getNome() << endl;
-
 
 	Graph<Localizacao> g;
 	LoadGraph lg;
@@ -250,10 +242,7 @@ int main(){
 
 	g.floydWarshallShortestPath();
 
-	//prepareGraph(g);
 	mainMenu(g);
-
-
 
 	return 0;
 }
