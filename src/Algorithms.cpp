@@ -1,5 +1,4 @@
 /*
- /*
  * Algorithms.cpp
  *
  *  Created on: 27/04/2016
@@ -31,19 +30,7 @@ void prepareGraph(Graph<Crianca> &grafo)
 void nearestNeighbourBus(Graph<Crianca> &grafo, Autocarro &b)
 {
 
-	Vertex<Crianca>* actual;
-
-	for(int i = 1; i < grafo.getNumVertex()-1; ++i)
-		if(!grafo.getVertexSet()[i]->isVisited())
-		{
-			actual = grafo.getVertexSet()[i];
-			break;
-		}
-
-	if(actual == NULL)
-		return;
-
-	grafo.getVertexSet()[0]->path = actual;
+	Vertex<Crianca>* actual = grafo.getVertexSet()[0];
 
 
 	Vertex<Crianca>* proximo;
@@ -54,12 +41,11 @@ void nearestNeighbourBus(Graph<Crianca> &grafo, Autocarro &b)
 	{
 		for(int j = 0; j < actual->getAdj().size(); ++j)
 		{
-			Edge<Crianca> edge = actual->getAdj()[j];
-			if(!edge.getDest()->isVisited())
+			if(!actual->getAdj()[j].getDest()->isVisited())
 			{
-				if(pesoMin == -1 || edge.getWeight() < pesoMin)
+				if(pesoMin == -1 || actual->getAdj()[j].getWeight() < pesoMin)
 				{
-					pesoMin = edge.getWeight();
+					pesoMin = actual->getAdj()[j].getWeight();
 					proximo = grafo.getVertexSet()[i]->getAdj()[j].getDest();
 				}
 			}
@@ -69,42 +55,29 @@ void nearestNeighbourBus(Graph<Crianca> &grafo, Autocarro &b)
 		//------------  Checks if all possible kids have been collected  ----------------//
 
 		if (actual->getInfo() == proximo->getInfo() || b.getCapAtual() == b.getCapMax()){
-			{
 				actual->path = grafo.getVertexSet()[grafo.getNumVertex() - 1];
 				return;
 			}
+
 			//-------------------------------------------------------------------------------//
 
 			//Add kid to the bus and readies next iteration
 
 			b.addCrianca(proximo->getInfo());
-			actual->setVisited(true);
 
 			actual->path = proximo;
 
 			actual = proximo;
+			actual->setVisited(true);
+
 			pesoMin = -1;
-		}
 	}
 }
 
 void nearestNeighbourSuperBus(Graph<Crianca> &grafo, Autocarro &b)
 {
 
-	Vertex<Crianca>* actual;
-
-	for(int i = 1; i < grafo.getNumVertex()-1; ++i)
-		if(!grafo.getVertexSet()[i]->isVisited())
-		{
-			actual = grafo.getVertexSet()[i];
-			break;
-		}
-
-	if(actual == NULL)
-		return;
-
-	grafo.getVertexSet()[0]->path = actual;
-
+	Vertex<Crianca>* actual = grafo.getVertexSet()[0];
 
 
 	Vertex<Crianca>* proximo;
@@ -115,12 +88,11 @@ void nearestNeighbourSuperBus(Graph<Crianca> &grafo, Autocarro &b)
 	{
 		for(int j = 0; j < actual->getAdj().size(); ++j)
 		{
-			Edge<Crianca> edge = actual->getAdj()[j];
-			if(!edge.getDest()->isVisited())
+			if(!actual->getAdj()[j].getDest()->isVisited())
 			{
-				if(pesoMin == -1 || edge.getWeight() < pesoMin)
+				if(pesoMin == -1 || actual->getAdj()[j].getWeight() < pesoMin)
 				{
-					pesoMin = edge.getWeight();
+					pesoMin = actual->getAdj()[j].getWeight();
 					proximo = grafo.getVertexSet()[i]->getAdj()[j].getDest();
 				}
 			}
@@ -130,22 +102,24 @@ void nearestNeighbourSuperBus(Graph<Crianca> &grafo, Autocarro &b)
 		//------------  Checks if all kids have been collected  ----------------//
 
 		if (actual->getInfo() == proximo->getInfo()){
-			{
 				actual->path = grafo.getVertexSet()[grafo.getNumVertex() - 1];
 				return;
 			}
+
 			//-------------------------------------------------------------------------------//
 
 			//Add kid to the bus and readies next iteration
 
 			b.addCrianca(proximo->getInfo());
-			actual->setVisited(true);
 
 			actual->path = proximo;
 
 			actual = proximo;
+			actual->setVisited(true);
+
 			pesoMin = -1;
-		}
 	}
 
 }
+
+

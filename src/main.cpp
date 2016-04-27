@@ -87,11 +87,11 @@ void ilimitado(Graph<Crianca> &g)
 	do{
 				cout << "1 - Mostrar Mapa" << endl;
 				cout << "2 - Mostrar Caminho" << endl;
-				cout << "0 - Exit" << endl;
+				cout << "0 - Return" << endl;
 
 				cin >> option2;
 
-				if(option2 > 3 || option2 < 0){
+				if(option2 > 2 || option2 < 0){
 					cout << "Not a Valid Choice. \n"
 							<< "Choose again.\n";
 				}
@@ -131,11 +131,11 @@ void limitado(Graph<Crianca> &g)
 		do{
 					cout << "1 - Mostrar Mapa" << endl;
 					cout << "2 - Mostrar Caminho" << endl;
-					cout << "0 - Exit" << endl;
+					cout << "0 - Return" << endl;
 
 					cin >> option3;
 
-					if(option3 > 3 || option3 < 0){
+					if(option3 > 2 || option3 < 0){
 						cout << "Not a Valid Choice. \n"
 								<< "Choose again.\n";
 					}
@@ -178,7 +178,7 @@ void mainMenu(Graph<Crianca> &g)
 
 			cin >> option;
 
-			if(option > 3 || option < 0){
+			if(option > 2 || option < 0){
 				cout << "Not a Valid Choice. \n"
 						<< "Choose again.\n";
 			}
