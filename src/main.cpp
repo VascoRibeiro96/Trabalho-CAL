@@ -6,7 +6,7 @@
  */
 
 
-#include "Empresa.h"
+
 #include "LoadGraph.h"
 #include "windows.h"
 #include <ctime>
@@ -18,6 +18,8 @@
 #include "Autocarro.h"
 #include "Algorithms.h"
 #include "Graph.h"
+#include "EdgeType.h"
+#include "GraphViewer.h"
 
 using namespace std;
 
@@ -25,7 +27,8 @@ using namespace std;
 
 
 
-void showGraph(Graph<Localizacao> &grafo) {
+void showGraph(Graph<Localizacao> &grafo)
+{
  	GraphViewer *gv = new GraphViewer(800, 800, true);
 
  	gv->createWindow(800, 800);

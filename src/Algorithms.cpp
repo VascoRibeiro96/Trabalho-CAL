@@ -8,7 +8,7 @@
 #include "Algorithms.h"
 #include <vector>
 
-#include "Empresa.h"
+
 #include "LoadGraph.h"
 #include "windows.h"
 #include <ctime>
