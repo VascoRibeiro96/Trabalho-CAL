@@ -46,7 +46,7 @@ void nearestNeighbourBus(Graph<Crianca> &grafo, Autocarro &b)
 				if(pesoMin == -1 || actual->getAdj()[j].getWeight() < pesoMin)
 				{
 					pesoMin = actual->getAdj()[j].getWeight();
-					proximo = grafo.getVertexSet()[i]->getAdj()[j].getDest();
+					proximo = actual->getAdj()[j].getDest();
 				}
 			}
 		}
@@ -93,7 +93,7 @@ void nearestNeighbourSuperBus(Graph<Crianca> &grafo, Autocarro &b)
 				if(pesoMin == -1 || actual->getAdj()[j].getWeight() < pesoMin)
 				{
 					pesoMin = actual->getAdj()[j].getWeight();
-					proximo = grafo.getVertexSet()[i]->getAdj()[j].getDest();
+					proximo = actual->getAdj()[j].getDest();
 				}
 			}
 		}

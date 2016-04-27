@@ -14,10 +14,12 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <algorithm>
 #include "Autocarro.h"
 #include "Algorithms.h"
 
 using namespace std;
+
 
 void showGraph(Graph<Crianca> &grafo) {
  	GraphViewer *gv = new GraphViewer(800, 800, true);
