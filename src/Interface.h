@@ -10,7 +10,6 @@
 
 #include <vector>
 #include "Empresa.h"
-#include "Escola.h"
 
 
 class Interface{

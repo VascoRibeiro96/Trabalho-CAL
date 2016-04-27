@@ -19,7 +19,6 @@ private:
 	GraphViewer *gv;
 	Graph<int> graph;
 	vector<Autocarro *> autocarros;
-	vector<Escola *> escolas;
 public:
 	Empresa();
 	Empresa(const Graph<int> &graph);
@@ -27,9 +26,6 @@ public:
 	void addAutocarro(Autocarro * a1);
 	void removeAutocarro(Autocarro * a1);
 	Autocarro* getAutocarroById(int id)const;
-	vector<Escola *> getEscolas() const;
-	Escola* getEscolaByName(string nomeEscola)const;
-	void addEscola(Escola *e1);
 	void removeEscola(string nomeEsc);
 	Graph<int> getGraph() const;
 };

@@ -27,26 +27,6 @@ void Empresa::addAutocarro(Autocarro * a1)
 	this->autocarros.push_back(a1);
 }
 
-vector<Escola *> Empresa::getEscolas() const
-{
-	return escolas;
-}
-
-void Empresa::addEscola(Escola *e1)
-{
-	this->escolas.push_back(e1);
-}
-
-
-Escola* Empresa::getEscolaByName(string nomeEscola)const
-{
-	for(int i = 0; i < escolas.size(); i++)
-	{
-		if(escolas[i]->getNome() == nomeEscola)
-			return escolas[i];
-	}
-	return NULL;
-}
 
 Autocarro* Empresa::getAutocarroById(int id)const
 {
@@ -72,13 +52,3 @@ void Empresa::removeAutocarro(Autocarro * a1)
 		}
 }
 
-
-
-void Empresa::removeEscola(string nomeEsc)
-{
-	for(int i = 0; i < escolas.size(); i++)
-		{
-			if(escolas[i]->getNome() == nomeEsc)
-				escolas.erase(escolas.begin() + i);
-		}
-}
