@@ -5,7 +5,7 @@
  *      Author: Vasco
  */
 
-#include "Interface.h"
+
 #include "Empresa.h"
 #include "LoadGraph.h"
 #include "windows.h"
@@ -25,7 +25,7 @@ using namespace std;
 
 
 
-void showGraph(Graph<Crianca> &grafo) {
+void showGraph(Graph<Localizacao> &grafo) {
  	GraphViewer *gv = new GraphViewer(800, 800, true);
 
  	gv->createWindow(800, 800);
@@ -86,11 +86,11 @@ void showGraph(Graph<Crianca> &grafo) {
 
 }
 
-void ilimitado(Graph<Crianca> &g)
+void ilimitado(Graph<Localizacao> &g)
 {
 	int option2;
 	Autocarro a;
-	Crianca c("Garagem",0,"Garagem");
+	Localizacao c("Garagem",0,"Garagem");
 	do{
 				cout << "1 - Mostrar Mapa" << endl;
 				cout << "2 - Mostrar Caminho" << endl;
@@ -131,7 +131,7 @@ void ilimitado(Graph<Crianca> &g)
 
 }
 
-void limitado(Graph<Crianca> &g)
+void limitado(Graph<Localizacao> &g)
 {
 	int option3;
 		Autocarro a;
@@ -174,7 +174,7 @@ void limitado(Graph<Crianca> &g)
 				}while (option3 !=0);
 }
 
-void mainMenu(Graph<Crianca> &g)
+void mainMenu(Graph<Localizacao> &g)
 {
 	int option;
 		do{
@@ -221,27 +221,27 @@ int main(){
 	//	Rua ruaC2("Rua Luis de Camoes", 22.903765871, -41.213141);
 	//	Rua ruaC3("Rua Fernando Pessoa", 21.018374, -41.26478237);
 	//	Rua ruaC4("Rua Eugenio de Andrade", 21.2345213,-41.14352345);
-	//	Crianca* cr1 = new Crianca("Joao",ruaC1);
-	//	Crianca* cr2 = new Crianca("Manel",ruaC1);
-	//	Crianca* cr3 = new Crianca("Nuno",ruaC2);
-	//	Crianca* cr4 = new Crianca("Miguel",ruaC3);
-	//	Crianca* cr5 = new Crianca("Pedro",ruaC4);
+	//	Localizacao* cr1 = new Localizacao("Joao",ruaC1);
+	//	Localizacao* cr2 = new Localizacao("Manel",ruaC1);
+	//	Localizacao* cr3 = new Localizacao("Nuno",ruaC2);
+	//	Localizacao* cr4 = new Localizacao("Miguel",ruaC3);
+	//	Localizacao* cr5 = new Localizacao("Pedro",ruaC4);
 	//	Escola* escola = new Escola("Externato Delfim Ferreira", ruaE);
-	//	escola->addCrianca(cr1);
-	//	escola->addCrianca(cr2);
-	//	escola->addCrianca(cr3);
-	//	escola->addCrianca(cr4);
-	//	escola->addCrianca(cr5);
+	//	escola->addLocalizacao(cr1);
+	//	escola->addLocalizacao(cr2);
+	//	escola->addLocalizacao(cr3);
+	//	escola->addLocalizacao(cr4);
+	//	escola->addLocalizacao(cr5);
 	//	Autocarro* autocarro = new Autocarro(1,10);
 	//	empresa->addEscola(escola);
 	//	empresa->addAutocarro(autocarro);
 	//	cout << "Nome: " << empresa->getEscolaByName("Externato Delfim Ferreira")->getNome() << endl;
 
 
-	Graph<Crianca> g;
+	Graph<Localizacao> g;
 	LoadGraph lg;
 
-	lg.loadCriancas(g);
+	lg.loadLocalizacaos(g);
 	lg.loadAdjacentes(g);
 
 

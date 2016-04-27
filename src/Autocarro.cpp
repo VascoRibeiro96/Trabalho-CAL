@@ -37,7 +37,7 @@ void Autocarro::setId(unsigned int id)
 
 unsigned int Autocarro::getCapAtual() const
 {
-	return criancas.size();
+	return Localizacaos.size();
 }
 
 unsigned int Autocarro::getCapMax() const
@@ -50,22 +50,22 @@ void Autocarro::setCapMax(unsigned int capMax)
 	this->capMax = capMax;
 }
 
-vector<Crianca> Autocarro::getCriancas() const
+vector<Localizacao> Autocarro::getLocalizacaos() const
 {
-	return criancas;
+	return Localizacaos;
 }
 
-void Autocarro::addCrianca(Crianca c1)
+void Autocarro::addLocalizacao(Localizacao c1)
 {
-	this->criancas.push_back(c1);
+	this->Localizacaos.push_back(c1);
 }
 
-void Autocarro::removeCrianca(Crianca c1)
+void Autocarro::removeLocalizacao(Localizacao c1)
 {
-	for(unsigned int i = 0; i < criancas.size(); i++)
+	for(unsigned int i = 0; i < Localizacaos.size(); i++)
 	{
-		if(criancas[i] == c1)
-			criancas.erase(criancas.begin() + i);
+		if(Localizacaos[i] == c1)
+			Localizacaos.erase(Localizacaos.begin() + i);
 	}
 }
 bool Autocarro::operator==(const Autocarro a1) const
@@ -93,10 +93,10 @@ void Autocarro::addDist(unsigned int d) {
 }
 
 
-void Autocarro::calcRotaAutocarro(Graph<Crianca> &grafo) {
+void Autocarro::calcRotaAutocarro(Graph<Localizacao> &grafo) {
 
 
- 	Vertex<Crianca>* actual = grafo.getVertexSet()[0];
+ 	Vertex<Localizacao>* actual = grafo.getVertexSet()[0];
 
 
 	while (actual->path != NULL) {
@@ -112,10 +112,10 @@ void Autocarro::calcRotaAutocarro(Graph<Crianca> &grafo) {
 }
 
 void Autocarro::print(){
- 	cout<<"Distancia percorrida:"<<this->distanciaPercorrida<<"\tQuantidade Criancas:"<<criancas.size()<<endl;
+ 	cout<<"Distancia percorrida:"<<this->distanciaPercorrida<<"\tQuantidade Localizacaos:"<<Localizacaos.size()<<endl;
  	cout<<"Rota:";
- 	for(int i =0;i<criancas.size();i++){
- 		cout<<criancas[i].getId()<<" ";
+ 	for(int i =0;i<Localizacaos.size();i++){
+ 		cout<<Localizacaos[i].getId()<<" ";
 }
  	cout<<endl;
 }

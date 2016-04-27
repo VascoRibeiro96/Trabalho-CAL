@@ -13,33 +13,33 @@
 #include <string>
 
 
-bool LoadGraph::loadCriancas(Graph<Crianca> &grafo) {
-	ifstream fcriancas;
-	fcriancas.open("resources/criancas.txt");
-	if (!fcriancas.is_open()) {
-		cerr << "Erro abrir ficheiro Criancas";
+bool LoadGraph::loadLocalizacaos(Graph<Localizacao> &grafo) {
+	ifstream fLocalizacaos;
+	fLocalizacaos.open("resources/Localizacaos.txt");
+	if (!fLocalizacaos.is_open()) {
+		cerr << "Erro abrir ficheiro Localizacaos";
 		return false;
  	}
 unsigned int id;
 string s, rua, nome;
 	stringstream ss;
-	getline(fcriancas, s);
+	getline(fLocalizacaos, s);
 	ss << s;
 	ss >> id;
- 	Crianca::setNextId(id);
+ 	Localizacao::setNextId(id);
 
 
-	while (!fcriancas.eof()) {
-		getline(fcriancas, s, ',');
+	while (!fLocalizacaos.eof()) {
+		getline(fLocalizacaos, s, ',');
 		stringstream(s) >> id;
 
 
-		getline(fcriancas, nome, ',');
-		getline(fcriancas, rua);
+		getline(fLocalizacaos, nome, ',');
+		getline(fLocalizacaos, rua);
 
 
 	grafo.addVertex(
-			*new Crianca(nome, id, rua));
+			*new Localizacao(nome, id, rua));
 
   	}
 
@@ -50,7 +50,7 @@ string s, rua, nome;
 }
 
 
-bool LoadGraph::loadAdjacentes(Graph<Crianca> &grafo) {
+bool LoadGraph::loadAdjacentes(Graph<Localizacao> &grafo) {
 	ifstream fadj;
 	fadj.open("resources/adj.txt");
 if (!fadj.is_open()) {
@@ -74,8 +74,8 @@ if (!fadj.is_open()) {
 	stringstream(s) >> peso;
 
 
- 		grafo.addEdge(Crianca("tempName1",idV1, "tempVertex1"),
-				Crianca("tempName2",idV2, "tempVertex2"), peso,0);
+ 		grafo.addEdge(Localizacao("tempName1",idV1, "tempVertex1"),
+				Localizacao("tempName2",idV2, "tempVertex2"), peso,0);
 
 
  	}

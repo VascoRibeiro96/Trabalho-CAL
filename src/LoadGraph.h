@@ -12,7 +12,7 @@
 #include <vector>
 #include "Graph.h"
 #include "Autocarro.h"
-#include "Crianca.h"
+#include "Localizacao.h"
 
 
 using namespace std;
@@ -20,8 +20,8 @@ using namespace std;
 
 class LoadGraph {
 public:
- bool loadCriancas(Graph<Crianca> &grafo);
- bool loadAdjacentes(Graph<Crianca> &grafo);
+ bool loadLocalizacaos(Graph<Localizacao> &grafo);
+ bool loadAdjacentes(Graph<Localizacao> &grafo);
 
 
 

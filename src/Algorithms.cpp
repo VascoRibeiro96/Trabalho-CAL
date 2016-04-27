@@ -7,7 +7,7 @@
 
 #include "Algorithms.h"
 #include <vector>
-#include "Interface.h"
+
 #include "Empresa.h"
 #include "LoadGraph.h"
 #include "windows.h"
@@ -26,7 +26,7 @@
  * @param grafo Graph to be reseted
  */
 
-void prepareGraph(Graph<Crianca> &grafo)
+void prepareGraph(Graph<Localizacao> &grafo)
 {
 
 	for (unsigned int i = 0; i < grafo.getNumVertex(); i++) {
@@ -39,13 +39,13 @@ void prepareGraph(Graph<Crianca> &grafo)
 
 }
 
-void nearestNeighbourBus(Graph<Crianca> &grafo, Autocarro &b)
+void nearestNeighbourBus(Graph<Localizacao> &grafo, Autocarro &b)
 {
 
-	Vertex<Crianca>* actual = grafo.getVertexSet()[0];
+	Vertex<Localizacao>* actual = grafo.getVertexSet()[0];
 
 
-	Vertex<Crianca>* proximo;
+	Vertex<Localizacao>* proximo;
 	actual->setVisited(true);
 	int pesoMin = -1;
 
@@ -75,7 +75,7 @@ void nearestNeighbourBus(Graph<Crianca> &grafo, Autocarro &b)
 
 			//Add kid to the bus and readies next iteration
 
-			b.addCrianca(proximo->getInfo());
+			b.addLocalizacao(proximo->getInfo());
 
 			actual->path = proximo;
 
@@ -86,7 +86,7 @@ void nearestNeighbourBus(Graph<Crianca> &grafo, Autocarro &b)
 	}
 }
 
-bool allVisited(Graph<Crianca> &grafo){
+bool allVisited(Graph<Localizacao> &grafo){
 	for (unsigned int i = 0; i < grafo.getNumVertex(); i++) {
 				if(grafo.getVertexSet()[i]->getVisited() == false)
 					return false;
@@ -94,15 +94,15 @@ bool allVisited(Graph<Crianca> &grafo){
 	return true;
 }
 
-void nearestNeighbourSuperBus(Graph<Crianca> &grafo, Autocarro &b)
+void nearestNeighbourSuperBus(Graph<Localizacao> &grafo, Autocarro &b)
 {
 
 	for (unsigned int i = 0; i < grafo.getNumVertex(); i++) {
 			grafo.getVertexSet()[i]->setVisited(false);
 		}
 
-	Vertex<Crianca>* actual = grafo.getVertexSet()[0];
-	Vertex<Crianca>* proximo;
+	Vertex<Localizacao>* actual = grafo.getVertexSet()[0];
+	Vertex<Localizacao>* proximo;
 	actual->setVisited(true);
 	int pesoMin = INT_INFINITY;
 
@@ -132,7 +132,7 @@ void nearestNeighbourSuperBus(Graph<Crianca> &grafo, Autocarro &b)
 				//actual->path = grafo.getVertexSet()[grafo.getNumVertex() - 1];
 				actual->path = proximo;
 				if(!(actual->getInfo().getNome() == "Escola"))
-				b.addCrianca(proximo->getInfo());
+				b.addLocalizacao(proximo->getInfo());
 			}
 			//-------------------------------------------------------------------------------//
 			//Add kid to the bus and readies next iteration

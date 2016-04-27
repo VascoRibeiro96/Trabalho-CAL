@@ -9,9 +9,9 @@
 #define SRC_EMPRESA_H_
 
 #include "Autocarro.h"
-#include "Crianca.h"
 #include "Graph.h"
 #include "GraphViewer.h"
+#include "Localizacao.h"
 
 class Empresa
 {

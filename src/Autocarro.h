@@ -9,8 +9,8 @@
 #define SRC_AUTOCARRO_H_
 
 #include <vector>
-#include "Crianca.h"
 #include "Graph.h"
+#include "Localizacao.h"
 
 
 using namespace std;
@@ -24,7 +24,7 @@ private:
 	static unsigned int nextId;
 	unsigned int id;
 	unsigned int distanciaPercorrida;
-	vector<Crianca> criancas;
+	vector<Localizacao> Localizacaos;
 public:
 	/**
 	 * \brief Default Constructor with no arguments
@@ -70,17 +70,17 @@ public:
 	/**
 	 *  \return The vector where all the children in the Autocarro are stored
 	 */
-	vector<Crianca> getCriancas() const;
+	vector<Localizacao> getLocalizacaos() const;
 	/**
 	 *  \brief Adds a child to the Autocarro's vector
 	 *  \c1 Child to be added
 	 */
-	void addCrianca(Crianca c1);
+	void addLocalizacao(Localizacao c1);
 	/**
 	 *  \brief Removes a child to the Autocarro's vector
 	*  \c1 Child to be removed
 	*/
-	void removeCrianca(Crianca c1);
+	void removeLocalizacao(Localizacao c1);
 	/**
 	 *  \brief Adds a certain value to the travelled distance
 	 *  \d Value to add
@@ -94,7 +94,7 @@ public:
 	 * \brief Calculates the path the Autocarro takes in the given Graph
 	 * \param Graph where the path is executed
 	 */
-	void calcRotaAutocarro(Graph<Crianca> &grafo);
+	void calcRotaAutocarro(Graph<Localizacao> &grafo);
 	/**
 	 * \brief Prints the travelled distance, the amount of carried children and the path
 	 */

@@ -11,8 +11,8 @@
 #include "Graph.h"
 #include "Autocarro.h"
 
-void prepareGraph(Graph<Crianca> &grafo);
-void nearestNeighbourBus(Graph<Crianca> &grafo, Autocarro &b);
-void nearestNeighbourSuperBus(Graph<Crianca> &grafo, Autocarro &b);
+void prepareGraph(Graph<Localizacao> &grafo);
+void nearestNeighbourBus(Graph<Localizacao> &grafo, Autocarro &b);
+void nearestNeighbourSuperBus(Graph<Localizacao> &grafo, Autocarro &b);
 
 #endif /* SRC_ALGORITHMS_H_ */

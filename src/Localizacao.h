@@ -12,15 +12,15 @@
 using namespace std;
 
 
-class Crianca{
+class Localizacao{
 private:
 	string nome;
 	static unsigned int nextId;
 	unsigned int id;
 	string rua;
 public:
-	Crianca();
-	Crianca(string nome, unsigned int id, string rua);
+	Localizacao();
+	Localizacao(string nome, unsigned int id, string rua);
 	string getNome() const;
 	void setNome(string nome);
 	unsigned int getId() const;
@@ -31,7 +31,7 @@ public:
 	void setRua(string rua);
 
 
-	bool operator==(const Crianca &c1) const;
+	bool operator==(const Localizacao &c1) const;
 };
 
 
